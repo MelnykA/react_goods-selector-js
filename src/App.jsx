@@ -49,8 +49,8 @@ export const App = () => {
                 'has-background-success-light': good === selectedGood,
               })}
             >
-              {selectedGood === good ? (
-                <td>
+              <td>
+                {selectedGood === good ? (
                   <button
                     onClick={remove}
                     data-cy="RemoveButton"
@@ -59,9 +59,7 @@ export const App = () => {
                   >
                     -
                   </button>
-                </td>
-              ) : (
-                <td>
+                ) : (
                   <button
                     onClick={() => {
                       setSelectedGood(good);
@@ -72,8 +70,8 @@ export const App = () => {
                   >
                     +
                   </button>
-                </td>
-              )}
+                )}
+              </td>
 
               <td data-cy="GoodTitle" className="is-vcentered">
                 {good}
