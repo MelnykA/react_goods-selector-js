@@ -18,20 +18,12 @@ export const goods = [
 
 export const App = () => {
   const [selectedGood, setSelectedGood] = useState('Jam');
-  // const [goodIsSelected, setGoodIsSelected] = useState(true);
-  // const isAnySelected = selectedGood !== '';
 
   const remove = () => setSelectedGood('');
 
   return (
     <main className="section container">
-      {!selectedGood && (
-        <h1 className="title is-flex is-align-items-center">
-          No goods selected
-        </h1>
-      )}
-
-      {selectedGood && (
+      {selectedGood ? (
         <h1 className="title is-flex is-align-items-center">
           {selectedGood} is selected
           <button
@@ -40,6 +32,10 @@ export const App = () => {
             type="button"
             className="delete ml-3"
           />
+        </h1>
+      ) : (
+        <h1 className="title is-flex is-align-items-center">
+          No goods selected
         </h1>
       )}
 
@@ -53,7 +49,7 @@ export const App = () => {
                 'has-background-success-light': good === selectedGood,
               })}
             >
-              {selectedGood === good && (
+              {selectedGood === good ? (
                 <td>
                   <button
                     onClick={remove}
@@ -64,9 +60,7 @@ export const App = () => {
                     -
                   </button>
                 </td>
-              )}
-
-              {selectedGood !== good && (
+              ) : (
                 <td>
                   <button
                     onClick={() => {
